@@ -1,0 +1,14 @@
+{
+  "name": "ChatUI",
+  "description": "Próba chat app",
+  "launch_path": "/index.html",
+  "icons": {
+    "512": "/img/icon-512.png",
+    "128": "/img/icon-128.png"
+  },
+  "developer": {
+    "name": "",
+    "url": ""
+  },
+  "default_locale": "hu"
+}

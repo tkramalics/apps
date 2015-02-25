@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/headers.css" >
+        <link rel="stylesheet" type="text/css" href="css/drawer.css" >
+        <link rel="stylesheet" type="text/css" href="css/layout.css" >
+        <link rel="stylesheet" type="text/css" href="css/app.css" >
+    </head>
+
+    <body>
+
+        <section data-type="sidebar">
+            <header>
+                <h1>Title <em>(9)</em></h1>
+            </header>
+            <nav>
+                <ul>
+                    <li><a href="#content">label</a></li>
+                    <li><a href="#content">label</a></li>
+                    <li><a href="#content">label</a></li>
+                    <li><a href="#content">label</a></li>
+                </ul>
+            </nav>
+        </section>
+
+        <section id="drawer" role="region" class="vbox fit">
+            <header>
+                <a href="#content"><span class="icon icon-menu">hide sidebar</span></a>
+                <a href="#drawer"><span class="icon icon-menu">show sidebar</span></a>
+                <h1>Alkalmazás</h1>
+            </header>
+            <div role="main">
+                <section class="gaia-list fit scroll sticky">
+                    <article>
+                        <header>Paragraphs</header>
+                        <ul id="room">
+                            <li>egyik</li>
+                            <li>masik</li>
+                        </ul>
+
+                    </article>
+                </section>
+                <footer role="toolbar">
+                    <ul>
+                        <li><button>Hozzáadás</button></li>
+                        <li><button class="icon-share">share</button></li>
+                    </ul>
+                </footer>
+            </div>
+        </section>
+    </body>
+</html>
