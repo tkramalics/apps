@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Adatmegosztás</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/headers.css" type="text/css" rel="stylesheet">
+        <link href="css/layout.css" type="text/css" rel="stylesheet">
+        <link href="css/buttons.css" type="text/css" rel="stylesheet">
+        <link href="css/input_areas.css" type="text/css" rel="stylesheet">
+    </head>
+    <body>
+        <section role="region">
+            <header>
+                <h1>Adatmegosztás</h1>
+            </header>
+        </section>
+
+        <section class="gaia-list fit scroll sticky">
+            <article>
+                <header>Adatküldés</header>
+                <ul>
+                    <li>
+                        <p>
+                            <input type="text" placeholder="kinek" id="owner"/>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <input type="text" placeholder="mit" id="data"/>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <button id="send" class="recommend">Küld</button>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <button id="get" class="recommend">Kér</button>
+                        </p>
+                    </li>
+                </ul>
+            </article>
+            <article>
+                <ul id="msgList">
+
+                </ul>
+            </article>
+        </section>
+        <script>
+            function reqListener() {
+                console.log(this.responseText);
+            }
+
+            var appid = "u6kvnq_0"
+
+            function sendData() {
+                var owner = document.getElementById("owner").value;
+                var text = document.getElementById("data").value;
+                var oReq = new XMLHttpRequest();
+                oReq.onload = reqListener;
+                oReq.open("post", "http://k-firefoxos.appspot.com/objects", true);
+                oReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                oReq.send("appid=" + appid + "&owner=" + owner + "&text=" + text);
+            }
+            
+            function viewData()
+            {
+                var ul = document.getElementById("msgList");
+                var li=document.createElement("li");
+                li.innerHTML=this.responseText;
+                ul.addChild(li);
+            }
+
+            function showData()
+            {
+                document.getElementById("msgList").innerHTML="";
+                eval("var ids=" + this.responseText + ";");
+                for (var x = 0; x < ids.length; x++)
+                {
+                    var oReq = new XMLHttpRequest();
+                    oReq.onload=viewData;
+                    oReq.onload = reqListener;
+                    oReq.open("get", "http://k-firefoxos.appspot.com/objects?appid=" + appid + "&id=" + ids[x], true);
+
+                    console.log(ids[x]);
+                }
+            }
+
+            function getData()
+            {
+                var owner = document.getElementById("owner").value;
+                var text = document.getElementById("data").value;
+                var oReq = new XMLHttpRequest();
+                oReq.onload = reqListener;
+                oReq.open("get", "http://k-firefoxos.appspot.com/objects?appid=" + appid + "&owner=" + owner, true);
+            }
+
+            document.querySelector("#send").addEventListener("click", sendData);
+            document.querySelector("#get").addEventListener("click", getData);
+        </script>
+    </body>
+</html>

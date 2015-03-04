@@ -1,0 +1,14 @@
+{
+  "name": "Adatmegosztas",
+  "description": "felhasznalok kozott adatmegosztas",
+  "launch_path": "/index.html",
+  "icons": {
+    "512": "/img/icon-512.png",
+    "128": "/img/icon-128.png"
+  },
+  "developer": {
+    "name": "OE_NIK",
+    "url": "http://your-homepage-here.org"
+  },
+  "default_locale": "HU"
+}
