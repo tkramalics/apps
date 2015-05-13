@@ -1,0 +1,20 @@
+{
+  "name": "Nevnapp",
+  "description": "Nevnapok",
+  "launch_path": "/index.html",
+  "icons": {
+    "60": "/style/icons/icon-60.png",
+    "128": "/style/icons/icon-128.png"
+  },
+  "developer": {
+    "name": "Kramalics Tamas"
+  },
+  "default_locale": "hu",
+  "type": "privileged",
+  "permissions":{
+    "contacts":{
+        "description": "Hasznalhatom a telefonkonyvet?",
+        "access": "readwrite"
+        }
+    }
+}
